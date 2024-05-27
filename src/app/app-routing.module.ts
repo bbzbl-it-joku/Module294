@@ -6,6 +6,8 @@ import { AirlineListComponent } from './pages/airline-list/airline-list.componen
 import { canActivate } from './guards/auth.guard';
 import { AppRoles } from './app.roles';
 import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
+import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
+import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,15 @@ const routes: Routes = [
   },
   {
     path: "airline/:id", component: AirlineDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "aircrafts", component: AircraftListComponent
+  },
+  {
+    path: "airctaft", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "airctaft/:id", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   },
 
 ];

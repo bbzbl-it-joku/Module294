@@ -1,0 +1,36 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-middle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-middle a {
+  margin: 0 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}

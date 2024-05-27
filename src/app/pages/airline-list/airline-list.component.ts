@@ -1,0 +1,67 @@
+import { Component } from '@angular/core';
+import { Airline } from '../../models/airline.model';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { AirlineService } from '../../services/airlinie.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+
+@Component({
+  selector: 'app-airline-list',
+  templateUrl: './airline-list.component.html',
+  styleUrl: './airline-list.component.css'
+})
+export class AirlineListComponent {
+
+  dataSource: Airline[] = [];
+  displayedColumns: string[] = ['id', 'name', 'country', 'actions'];
+
+  isUnique = true;
+  airline = new Airline();
+  public airlineForm = new UntypedFormGroup({
+    name: new UntypedFormControl(''),
+    age: new UntypedFormControl(''),
+  });
+
+
+  public constructor(private airlineService: AirlineService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.airlineService.getAll().subscribe(result => {
+      this.dataSource = result;
+    });
+  }
+
+  async edit(e: Airline) {
+    await this.router.navigate(['airline', e.id]);
+  }
+
+  async add() {
+    await this.router.navigate(['airline']);
+  }
+
+  delete(e: Airline) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult === true) {
+        this.airlineService.delete(e.id).subscribe({
+          next: (response: any) => {
+            if (response === null) {
+              this.snackBar.open('Item deleted!', 'Close', { duration: 5000 });
+              this.reloadData();
+            } else {
+              this.snackBar.open('Item could not be deleted, server error!', 'Close', { duration: 5000 });
+            }
+          },
+          error: () => this.snackBar.open('Item could not be deleted, server error!', 'Close', { duration: 5000 })
+        });
+      }
+    });
+  }
+}

@@ -17,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,12 @@ import { IsInRoleDirective } from './directives/is.in.role.directive';
 import { IsInRolesDirective } from './directives/is.in.roles.directive';
 import { AutofocusDirective } from './directives/autofocus-directive';
 import { HttpXSRFInterceptor } from './interceptors/http.csrf.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AirlineListComponent } from './pages/airline-list/airline-list.component';
+import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -34,7 +41,7 @@ export const authConfig: AuthConfig = {
   requireHttps: false,
   redirectUri: environment.frontendBaseUrl,
   postLogoutRedirectUri: environment.frontendBaseUrl,
-  clientId: 'demoapp',
+  clientId: 'ch.kunz.joshua.flugbuchungsapi',
   scope: 'openid profile roles offline_access',
   responseType: 'code',
   showDebugInformation: true,
@@ -54,6 +61,12 @@ export function storageFactory(): OAuthStorage {
     IsInRoleDirective,
     IsInRolesDirective,
     AutofocusDirective,
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent,
+    AirlineListComponent,
+    AirlineDetailComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +90,7 @@ export function storageFactory(): OAuthStorage {
     MatToolbarModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDatepickerModule,
   ],
   providers: [
     provideAnimationsAsync(),

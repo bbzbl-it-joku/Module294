@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span class="navbar-left">
+    <mat-icon>flight</mat-icon>
+    <span class="title">FlightBookingApp</span>
+  </span>
+  <span class="navbar-middle">
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/airlines">Airline</a>
+  </span>
+  <span class="navbar-right">
+    <div *ngIf="isLoggedIn(); else loginTemplate">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+        {{ username | uppercase}}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+    <ng-template #loginTemplate>
+      <!--<a mat-button routerLink="/login">Login</a>-->
+      <button mat-button (click)="login()">Login</button>
+    </ng-template>
+  </span>
+</mat-toolbar>

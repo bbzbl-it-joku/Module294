@@ -1,0 +1,12 @@
+<div class="container mat-elevation-z8">
+  <div *ngIf="!noAccess; else noaccess">
+      <h2>NOT LOGGED IN</h2>
+      <p>You are not authenticated, please log in!</p>
+      <button mat-raised-button color="accent" (click)="login()">Login</button>
+  </div>
+
+  <ng-template #noaccess>
+      <h2>NO ACCESS TO THIS PAGE</h2>
+      <p>Please check your access rights!</p>
+  </ng-template>
+</div>

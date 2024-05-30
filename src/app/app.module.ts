@@ -37,6 +37,8 @@ import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.compo
 import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
+import { PassengerDetailComponent } from './pages/passenger-detail/passenger-detail.component';
 
 
 
@@ -73,6 +75,8 @@ export function storageFactory(): OAuthStorage {
     ConfirmDialogComponent,
     AircraftListComponent,
     AircraftDetailsComponent,
+    PassengerListComponent,
+    PassengerDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import { AppRoles } from './app.roles';
 import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
 import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
 import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
+import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
+import { PassengerDetailComponent } from './pages/passenger-detail/passenger-detail.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,15 @@ const routes: Routes = [
   },
   {
     path: "aircraft/:id", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "passengers", component: PassengerListComponent
+  },
+  {
+    path: "passenger", component: PassengerDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "passenger/:id", component: PassengerDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   },
 
 ];

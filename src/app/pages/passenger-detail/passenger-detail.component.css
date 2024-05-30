@@ -1,0 +1,14 @@
+mat-form-field {
+  width: 300%;
+}
+
+.spacer {
+  margin: 0px 10px;
+}
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+}

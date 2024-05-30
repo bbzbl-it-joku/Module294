@@ -18,6 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,17 +30,17 @@ import { IsInRolesDirective } from './directives/is.in.roles.directive';
 import { AutofocusDirective } from './directives/autofocus-directive';
 import { HttpXSRFInterceptor } from './interceptors/http.csrf.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AirlineListComponent } from './pages/airline-list/airline-list.component';
 import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
 import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatOptionModule } from '@angular/material/core';
 import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
 import { PassengerDetailComponent } from './pages/passenger-detail/passenger-detail.component';
+import { SeatListComponent } from './pages/seat-list/seat-list.component';
+import { SeatDetailComponent } from './pages/seat-detail/seat-detail.component';
 
 
 
@@ -68,15 +70,17 @@ export function storageFactory(): OAuthStorage {
     IsInRolesDirective,
     AutofocusDirective,
     NavbarComponent,
+    ConfirmDialogComponent,
     LoginComponent,
     HomeComponent,
     AirlineListComponent,
     AirlineDetailComponent,
-    ConfirmDialogComponent,
     AircraftListComponent,
     AircraftDetailsComponent,
     PassengerListComponent,
     PassengerDetailComponent,
+    SeatListComponent,
+    SeatDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-deta
 import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
 import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
 import { PassengerDetailComponent } from './pages/passenger-detail/passenger-detail.component';
+import { SeatDetailComponent } from './pages/seat-detail/seat-detail.component';
+import { SeatListComponent } from './pages/seat-list/seat-list.component';
 
 const routes: Routes = [
   {
@@ -45,7 +47,15 @@ const routes: Routes = [
   {
     path: "passenger/:id", component: PassengerDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   },
-
+  {
+    path: "seats", component: SeatListComponent
+  },
+  {
+    path: "seat", component: SeatDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "seat/:id", component: SeatDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
 ];
 
 @NgModule({

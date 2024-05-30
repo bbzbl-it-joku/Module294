@@ -31,7 +31,7 @@ export class AirlineListComponent {
 
   reloadData() {
     this.airlineService.getAll().subscribe(result => {
-      this.dataSource = result;
+      this.dataSource = result.sort((a, b) => a.id - b.id);
     });
   }
 

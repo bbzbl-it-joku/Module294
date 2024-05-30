@@ -1,1 +1,48 @@
-<p>aircraft-details works!</p>
+<div>
+  <h2 style="text-align: center;padding: 20px;" class="mat-elevation-z8 ">New / Edit Aircraft</h2>
+  <div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button (click)="back()" color="primary" mat-button style="color: white">
+          <mat-icon>arrow_back_ios</mat-icon>
+          Back
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="spacer"> </div>
+
+
+
+  <div class="app-form" style="padding-top: 30px">
+    <form (ngSubmit)="save(aircraftForm.value)" [formGroup]="aircraftForm!" class="app-form">
+
+      <mat-form-field>
+        <mat-label>Airline</mat-label>
+        <mat-select formControlName="airlineId" appAutofocus required>
+          <mat-option *ngFor="let airline of airlines" [value]="airline.id">
+            {{airline.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <input formControlName="type" matInput #input maxlength="255" required />
+        <mat-hint align="end">{{input.value.length}}/255</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Capacity</mat-label>
+        <input formControlName="capacity" type="number" matInput #input maxlength="255" required />
+      </mat-form-field>
+
+      <button [disabled]="!aircraftForm.valid" color="primary" mat-raised-button style="width: 200px">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    </form>
+  </div>
+
+</div>

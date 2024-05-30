@@ -35,6 +35,8 @@ import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.co
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
 import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 
 
@@ -95,6 +97,8 @@ export function storageFactory(): OAuthStorage {
     MatDialogModule,
     MatSnackBarModule,
     MatDatepickerModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [
     provideAnimationsAsync(),

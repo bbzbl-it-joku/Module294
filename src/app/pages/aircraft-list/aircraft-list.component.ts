@@ -15,7 +15,7 @@ import { AirlineService } from '../../services/airlinie.service';
 })
 export class AircraftListComponent {
   dataSource: Aircraft[] = [];
-  displayedColumns: string[] = ['id', 'name', 'country', 'actions'];
+  displayedColumns: string[] = ['id', 'airline', 'type', 'capacity', 'actions'];
 
   isUnique = true;
   aircraft = new Aircraft();
@@ -25,13 +25,13 @@ export class AircraftListComponent {
   });
 
 
-  public constructor(private aircraftService: AircraftService, private airlineService: AirlineService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
+  public constructor(private aircraftService: AircraftService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
     this.reloadData();
   }
 
   reloadData() {
     this.aircraftService.getAll().subscribe(result => {
-      this.dataSource = result;
+      this.dataSource = result.sort((a, b) => a.id - b.id);
     });
   }
 

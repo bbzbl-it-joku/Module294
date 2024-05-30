@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Airline } from '../../models/airline.model';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { AirlineService } from '../../services/airlinie.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Airline } from '../../models/airline.model';
+import { AirlineService } from '../../services/airlinie.service';
 
 @Component({
   selector: 'app-airline-list',

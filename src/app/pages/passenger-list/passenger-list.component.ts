@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Passenger } from '../../models/passenger.model';
-import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Passenger } from '../../models/passenger.model';
 import { PassengerService } from '../../services/passenger.service';
 
 @Component({

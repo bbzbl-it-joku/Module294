@@ -17,14 +17,6 @@ export class AircraftListComponent {
   dataSource: Aircraft[] = [];
   displayedColumns: string[] = ['id', 'airline', 'type', 'capacity', 'actions'];
 
-  isUnique = true;
-  aircraft = new Aircraft();
-  public aircraftForm = new UntypedFormGroup({
-    name: new UntypedFormControl(''),
-    age: new UntypedFormControl(''),
-  });
-
-
   public constructor(private aircraftService: AircraftService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
     this.reloadData();
   }

@@ -17,14 +17,6 @@ export class AirlineListComponent {
   dataSource: Airline[] = [];
   displayedColumns: string[] = ['id', 'name', 'country', 'actions'];
 
-  isUnique = true;
-  airline = new Airline();
-  public airlineForm = new UntypedFormGroup({
-    name: new UntypedFormControl(''),
-    age: new UntypedFormControl(''),
-  });
-
-
   public constructor(private airlineService: AirlineService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
     this.reloadData();
   }

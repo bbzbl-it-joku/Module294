@@ -37,7 +37,7 @@ export class AircraftDetailsComponent implements OnInit {
     }
 
     this.airlineService.getAll().subscribe(obj => {
-      this.airlines = obj;
+      this.airlines = obj.sort((a, b) => a.id - b.id);
     });
   }
 

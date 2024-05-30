@@ -39,7 +39,6 @@ export class PassengerDetailComponent implements OnInit {
   }
 
   async save(formData: any) {
-    console.log(formData);
     this.passenger = Object.assign(formData);
 
     if (this.passenger.id) {

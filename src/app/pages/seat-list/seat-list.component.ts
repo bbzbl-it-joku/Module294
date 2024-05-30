@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { Seat } from '../../models/seat.model';
+import { FlightService } from '../../services/flight.service';
 import { SeatService } from '../../services/seat.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class SeatListComponent {
   dataSource: Seat[] = [];
   displayedColumns: string[] = ['id', 'seatNumber', 'passenger', 'actions'];
 
-  public constructor(private seatService: SeatService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
+  public constructor(private seatService: SeatService, private flightService: FlightService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
     this.reloadData();
   }
 
@@ -25,12 +26,14 @@ export class SeatListComponent {
     });
   }
 
-  async edit(e: Seat) {
-    await this.router.navigate(['seat', e.id]);
+  openPassengerDetails(passengerId: number) {
+    this.router.navigate(['/passenger', passengerId]);
   }
 
-  async add() {
-    await this.router.navigate(['seat']);
+  openFlightDetails(seatId: number) {
+    this.flightService.getBySeatId(seatId).subscribe(result => {
+      this.router.navigate(['/flight', result.id]);
+    });
   }
 
   delete(e: Seat) {
@@ -42,7 +45,7 @@ export class SeatListComponent {
       if (dialogResult === true) {
         this.seatService.delete(e.id).subscribe({
           next: (response: any) => {
-            if (response === null) {
+            if (response.ok) {
               this.snackBar.open('Item deleted!', 'Close', { duration: 5000 });
               this.reloadData();
             } else {

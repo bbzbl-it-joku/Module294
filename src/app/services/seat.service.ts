@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -28,7 +28,7 @@ export class SeatService {
     return this.http.put<Seat>(this.backendUrl + `/${seat.id}`, seat);
   }
 
-  public delete(id: number) {
-    return this.http.delete(this.backendUrl + `/${id}`);
+  public delete(id: number): Observable<HttpResponse<any>> {
+    return this.http.delete(this.backendUrl + `/${id}`, {observe: 'response'});
   }
 }

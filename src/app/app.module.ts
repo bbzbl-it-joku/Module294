@@ -1,46 +1,47 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http'
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { AuthConfig, OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterOutlet } from '@angular/router';
+import { AuthConfig, OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './services/auth.service';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AutofocusDirective } from './directives/autofocus-directive';
 import { IsInRoleDirective } from './directives/is.in.role.directive';
 import { IsInRolesDirective } from './directives/is.in.roles.directive';
-import { AutofocusDirective } from './directives/autofocus-directive';
 import { HttpXSRFInterceptor } from './interceptors/http.csrf.interceptor';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AirlineListComponent } from './pages/airline-list/airline-list.component';
-import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
-import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
 import { AircraftDetailsComponent } from './pages/aircraft-details/aircraft-details.component';
-import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
+import { AircraftListComponent } from './pages/aircraft-list/aircraft-list.component';
+import { AirlineDetailComponent } from './pages/airline-detail/airline-detail.component';
+import { AirlineListComponent } from './pages/airline-list/airline-list.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { PassengerDetailComponent } from './pages/passenger-detail/passenger-detail.component';
+import { PassengerListComponent } from './pages/passenger-list/passenger-list.component';
 import { SeatListComponent } from './pages/seat-list/seat-list.component';
-import { SeatDetailComponent } from './pages/seat-detail/seat-detail.component';
+import { AuthService } from './services/auth.service';
+import { FlightDetailComponent } from './pages/flight-detail/flight-detail.component';
+import { FlightListComponent } from './pages/flight-list/flight-list.component';
 
 
 
@@ -80,7 +81,8 @@ export function storageFactory(): OAuthStorage {
     PassengerListComponent,
     PassengerDetailComponent,
     SeatListComponent,
-    SeatDetailComponent,
+    FlightDetailComponent,
+    FlightListComponent,
   ],
   imports: [
     BrowserModule,

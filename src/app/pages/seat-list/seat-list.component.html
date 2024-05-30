@@ -2,12 +2,6 @@
   <h1 style="padding: 20px;text-align: center;" class="mat-elevation-z8">Seats</h1>
   <div class="table-header">
     <mat-toolbar color="secondary">
-      <span>
-        <button (click)="add()" *appIsInRole="'staff'" color="secondary" mat-button >
-          <mat-icon>add</mat-icon>
-          Add
-        </button>
-      </span>
     </mat-toolbar>
   </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -29,10 +23,16 @@
     <ng-container matColumnDef="actions">
       <th *matHeaderCellDef class="w-75 th-center" mat-header-cell></th>
       <td *matCellDef="let element" mat-cell style="text-align: end">
-        <button (click)="edit(element)" *appIsInRole="'staff'" color="primary" mat-button>
-          <mat-icon>edit</mat-icon>
+        <ng-container *ngIf="element.passenger">
+          <button (click)="openPassengerDetails(element.passenger?.id)" *appIsInRole="'staff'"
+            color="primary" mat-button>
+            Open Passenger Info
+          </button>
+        </ng-container>
+        <button (click)="openFlightDetails(element.id)" *appIsInRole="'staff'" color="primary" mat-button>
+          Open Flight Info
         </button>
-        <button (click)="delete(element)" *appIsInRole="'admin'" color="warn" mat-button>
+        <button (click)="delete(element)" *appIsInRole="'staff'" color="warn" mat-button>
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -42,4 +42,3 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
-

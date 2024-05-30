@@ -44,7 +44,7 @@ export class PassengerListComponent {
       if (dialogResult === true) {
         this.passengerService.delete(e.id).subscribe({
           next: (response: any) => {
-            if (response === null) {
+            if (response.ok) {
               this.snackBar.open('Item deleted!', 'Close', { duration: 5000 });
               this.reloadData();
             } else {

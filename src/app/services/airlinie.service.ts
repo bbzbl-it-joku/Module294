@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Airline } from '../models/airline.model';
@@ -28,7 +28,7 @@ export class AirlineService {
     return this.http.put<Airline>(this.backendUrl + `/${airline.id}`, airline);
   }
 
-  public delete(id: number) {
-    return this.http.delete(this.backendUrl + `/${id}`);
+  public delete(id: number): Observable<HttpResponse<any>>{
+    return this.http.delete(this.backendUrl + `/${id}`, {observe: 'response'});
   }
 }

@@ -38,7 +38,6 @@ export class AirlineDetailComponent implements OnInit {
   }
 
   async save(formData: any) {
-    console.log(formData);
     this.airline = Object.assign(formData);
 
     if (this.airline.id) {

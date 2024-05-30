@@ -29,10 +29,10 @@ const routes: Routes = [
     path: "aircrafts", component: AircraftListComponent
   },
   {
-    path: "airctaft", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+    path: "aircraft", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   },
   {
-    path: "airctaft/:id", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+    path: "aircraft/:id", component: AircraftDetailsComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   },
 
 ];

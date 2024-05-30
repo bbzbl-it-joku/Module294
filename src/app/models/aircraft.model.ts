@@ -1,6 +1,8 @@
+import { Airline } from "./airline.model";
+
 export class Aircraft {
   id!: number;
-  airlineId!: number;
+  airline!: Airline;
   type = '';
   capacity = 0;
 }

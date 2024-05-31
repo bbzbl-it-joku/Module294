@@ -42,6 +42,7 @@ import { SeatListComponent } from './pages/seat-list/seat-list.component';
 import { AuthService } from './services/auth.service';
 import { FlightDetailComponent } from './pages/flight-detail/flight-detail.component';
 import { FlightListComponent } from './pages/flight-list/flight-list.component';
+import { NotImplementedComponent } from './pages/not-implemented/not-implemented.component';
 
 
 
@@ -83,6 +84,7 @@ export function storageFactory(): OAuthStorage {
     SeatListComponent,
     FlightDetailComponent,
     FlightListComponent,
+    NotImplementedComponent,
   ],
   imports: [
     BrowserModule,

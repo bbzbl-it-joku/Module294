@@ -13,6 +13,7 @@ import { PassengerListComponent } from './pages/passenger-list/passenger-list.co
 import { SeatListComponent } from './pages/seat-list/seat-list.component';
 import { FlightDetailComponent } from './pages/flight-detail/flight-detail.component';
 import { FlightListComponent } from './pages/flight-list/flight-list.component';
+import { NotImplementedComponent } from './pages/not-implemented/not-implemented.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,9 @@ const routes: Routes = [
     path: "seats", component: SeatListComponent
   },
   {
+    path: "seat", component: NotImplementedComponent
+  },
+  {
     path: "flights", component: FlightListComponent
   },
   {
@@ -59,6 +63,9 @@ const routes: Routes = [
   },
   {
     path: "flight/:id", component: FlightDetailComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
+  },
+  {
+    path: "flight/:id/booking", component: NotImplementedComponent, canActivate: [canActivate], data: { roles: [AppRoles.Staff, AppRoles.Admin] }
   }
 ];
 
